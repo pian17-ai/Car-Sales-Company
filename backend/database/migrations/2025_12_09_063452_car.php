@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_categories', function (Blueprint $table) {
+        Schema::create('car', function(Blueprint $table) {
             $table->id();
-            $table->string('job_category');
+            $table->string('name');
+            $table->string('brand');
+            $table->string('type');
+            $table->integer('year');
+            $table->bigInteger('price');
+            $table->timestamps();
         });
     }
 

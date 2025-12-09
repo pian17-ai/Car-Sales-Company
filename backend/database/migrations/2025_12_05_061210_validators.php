@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('role', ['officer', 'validator']);
             $table->string('name');
+            $table->timestamps();
         });
     }
 

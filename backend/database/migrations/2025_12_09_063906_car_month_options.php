@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_apply_societies', function(Blueprint $table) {
+        Schema::create('car_month_options', function(Blueprint $table) {
             $table->id();
-            $table->text('notes');
-            $table->date('date');
-            $table->foreignId('society_id')->constrained('societies')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('job_apply_societies')->constrained('job_vacancies')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->bigInteger('car_id');
+            $table->integer('month');
+            $table->decimal('interest');
+            $table->timestamps();
         });
     }
 

@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('validations', function(Blueprint $table) {
             $table->id();
-            $table->foreignId('job_category_id')->constrained('job_categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('society_id')->constrained('societies')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('validator_id')->constrained('validators')->cascadeOnDelete()->cascadeOnUpdate();
             $table->enum('status', ['accepted', 'declined', 'pending']);
-            $table->text('work_experience');
-            $table->text('job_position');
+            $table->string('job');
+            $table->text('job_description');
+            $table->string('income');
             $table->text('reason_accepted');
             $table->text('validator_notes');
+            $table->timestamps();
         });
     }
 
