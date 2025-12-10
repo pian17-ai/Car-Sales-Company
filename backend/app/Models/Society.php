@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -18,15 +17,18 @@ class Society extends Authenticatable
         'born_date',
         'gender',
         'address',
-        'regional_id'
+        'regional_id',
     ];
 
-    protected $hidden = [
-        'password'
-    ];
+    public function regional() {
+        return $this->belongsTo(Regional::class);
+    }
 
-    public function regional()
-    {
-        return $this->belongsTo(Regional::class, 'regional_id');
+    public function validation() {
+        return $this->hasOne(Validation::class);
+    }
+
+    public function instalmentapplication() {
+        return $this->hasMany(InstalmentApplication::class);
     }
 }

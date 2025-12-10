@@ -20,7 +20,6 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->text('address');
             $table->foreignId('regional_id')->constrained('regionals')->cascadeOnDelete()->cascadeOnUpdate();
-            // $table->text('login_tokens');
             $table->timestamps();
         });
     }

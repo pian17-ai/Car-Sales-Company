@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('car_month_options', function(Blueprint $table) {
             $table->id();
-            $table->bigInteger('car_id');
+            $table->foreignId('car_id')->constrained('car')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('month');
             $table->decimal('interest');
             $table->timestamps();

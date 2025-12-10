@@ -10,4 +10,8 @@ class Regional extends Model
         'province',
         'district'
     ];
+
+    public function society() {
+        return $this->hasMany(Society::class);
+    }
 }
