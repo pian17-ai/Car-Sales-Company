@@ -18,4 +18,5 @@ Route::prefix('v1/auth')->group(function() {
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::post('/v1/validations', [ValidationController::class, 'store']);
+    Route::get('/v1/validations', [ValidationController::class, 'show']);
 });
