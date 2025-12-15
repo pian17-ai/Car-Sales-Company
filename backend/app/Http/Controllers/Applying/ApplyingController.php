@@ -16,6 +16,8 @@ class ApplyingController extends Controller
 
         $validation = Validation::where('society_id', $society->id)->first();
 
+        $instalment_application = InstalmentApplication::where('society_id', $society->id)->first();
+
         if (!$validation) {
             return response()->json([
                 'messages' => 'Validation Data Not Found'
@@ -25,6 +27,12 @@ class ApplyingController extends Controller
         if ($validation->status !== 'accepted') {
             return response()->json([
                 'messages' => 'Your data validator must be accepted by validator before'
+            ]);
+        }
+
+        if ($instalment_application) {
+            return response()->json([
+                'messages' => 'Application for a instalment can only be once'
             ]);
         }
 

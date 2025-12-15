@@ -27,5 +27,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/instalment_car/{id}', [InstalmentCarController::class, 'show']);
 
         Route::post('/applications', [ApplyingController::class, 'store']);
+
+        // Route::get('/')
     });
 });
