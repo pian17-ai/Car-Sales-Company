@@ -10,7 +10,9 @@ class InstalmentApplication extends Model
         'society_id',
         'validator_id',
         'car_id',
-        'car_month_option_id'
+        'car_month_option_id',
+        'status',
+        'admin_notes'
     ];
     
     public function society() {

@@ -31,22 +31,23 @@ class ApplyingController extends Controller
         $request->validate([
             'instalment_id' => 'required',
             'months' => 'required|integer',
-            'notes' => 'required'
+            'admin_notes' => 'required'
         ]);
 
-        $car = Car::findOrfail($request->car_id);
-        $option = CarMonthOption::findOrFail($request->car_month_option_id);
+        $car = Car::findOrfail($request->instalment_id);
+        $option = CarMonthOption::findOrFail($request->months);
 
-        $total = $car->price + ($car->price * $option->interest);
+        // $total = $car->price + ($car->price * $option->interest);
 
-        $monthly = $total / $option->momnth;
+        // $monthly = $total / $option->momnth;
 
         InstalmentApplication::create([
             'society_id' => $society->id,
             'validator_id' => $validation->id,
             'car_id' => $car->id,
-            'car_month_option' => $option->id,
-            'monthly_payment' => round($monthly)
+            'car_month_option_id' => $option->id,
+            'status' => 'pending',
+            'admin_notes' => $request->admin_notes
         ]);
 
         return response()->json([

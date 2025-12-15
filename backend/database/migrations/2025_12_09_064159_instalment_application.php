@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('instalment_application', function(Blueprint $table) {
+        Schema::create('instalment_applications', function(Blueprint $table) {
             $table->id();
             $table->foreignId('society_id')->constrained('societies');
             $table->foreignId('validator_id')->constrained('validators');
@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('car_month_option_id')->constrained('car_month_options');
             $table->enum('status', ['pending', 'accepted', 'rejected']);
             $table->text('admin_notes');
+            $table->timestamps();
         });
     }
 
