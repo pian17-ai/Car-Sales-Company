@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('car_month_options', function(Blueprint $table) {
             $table->id();
-            $table->foreignId('car_id')->constrained('car')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('car_id')->constrained('cars')->cascadeOnDelete()->cascadeOnUpdate();
             $table->integer('month');
             $table->decimal('interest');
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('car_mounth_options');
     }
 };

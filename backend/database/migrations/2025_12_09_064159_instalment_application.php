@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('society_id')->constrained('societies');
             $table->foreignId('validator_id')->constrained('validators');
-            $table->foreignId('car_id')->constrained('car');
+            $table->foreignId('car_id')->constrained('cars');
             $table->foreignId('car_month_option_id')->constrained('car_month_options');
             $table->enum('status', ['pending', 'accepted', 'rejected']);
             $table->text('admin_notes');
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('instalment_application');
     }
 };
