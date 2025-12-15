@@ -57,7 +57,7 @@ class ValidationController extends Controller
             ]);
         }
 
-        $validation = Validation::all();
+        $validation = Validation::where('society_id', $society->id)->get();
 
         return response()->json([
             'validation' => $validation
