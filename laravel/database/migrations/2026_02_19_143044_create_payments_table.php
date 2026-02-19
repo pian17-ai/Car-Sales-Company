@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('amount');
             $table->date('payment_date');
             $table->enum('status', ['pending', 'paid', 'failed']);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
         });
     }
 
