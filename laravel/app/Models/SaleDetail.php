@@ -13,4 +13,12 @@ class SaleDetail extends Model
     ];
 
     public $timestamps = false;
+
+    public function sale() {
+        return $this->belongsTo(Sale::class);
+    }
+
+    public function car() {
+        return $this->belongsTo(Car::class);
+    }
 }

@@ -18,4 +18,24 @@ class Sale extends Model
         'payment_type',
         'status'
     ];
+
+    public function customer() {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function salesUser() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function creditApplication() {
+        return $this->hasOne(CreditApplication::class);
+    }
+
+    public function payments() {
+        return $this->hasMany(Payment::class);
+    }
+
+    public function saleDetails() {
+        return $this->hasMany(SaleDetail::class);
+    }
 }

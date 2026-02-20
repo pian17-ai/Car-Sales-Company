@@ -13,4 +13,8 @@ class InstallmentPlan extends Model
     ];
 
     public $timestamps = false;
+
+    public function creditApplications() {
+        return $this->hasMany(CreditApplication::class);
+    }
 }

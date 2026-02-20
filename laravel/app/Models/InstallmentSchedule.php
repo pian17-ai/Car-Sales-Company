@@ -15,4 +15,8 @@ class InstallmentSchedule extends Model
     ];
 
     public $timestamps = false;
+
+    public function creditApplication() {
+        return $this->belongsTo(CreditApplication::class);
+    }
 }

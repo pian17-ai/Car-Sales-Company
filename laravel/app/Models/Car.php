@@ -12,8 +12,16 @@ class Car extends Model
         'color',
         'transmission',
         'engine_capacity',
-        'vim_number',
+        'vin_number',
         'price',
         'status'
     ];
+
+    public function carModel() {
+        return $this->belongsTo(CarModel::class);
+    }
+
+    public function saleDetails() {
+        return $this->hasMany(SaleDetail::class);
+    }
 }

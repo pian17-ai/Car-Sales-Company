@@ -13,4 +13,8 @@ class Payment extends Model
         'payment_date',
         'status'
     ];
+
+    public function sale() {
+        return $this->belongsTo(Sale::class);
+    }
 }

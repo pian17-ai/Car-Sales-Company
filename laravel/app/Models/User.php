@@ -13,7 +13,10 @@ class User extends Model
         'name',
         'email',
         'password',
-        'is_active',
-        'deleted_at'
+        'is_active'
     ];
+
+    public function roles() {
+        return $this->belongsToMany(RoleUser::class, 'role_user');
+    }
 }

@@ -17,4 +17,20 @@ class CreditApplication extends Model
     ];
 
     public $timestamps = false;
+
+    public function installmentPlan() {
+        return $this->belongsTo(InstallmentPlan::class);
+    }
+
+    public function sale() {
+        return $this->belongsTo(Sale::class);
+    }
+
+    public function approve() {
+        return $this->belongsTo(User::class, 'approve_by');
+    }
+
+    public function installmentSchedules() {
+        return $this->hasMany(InstallmentSchedule::class);
+    }
 }

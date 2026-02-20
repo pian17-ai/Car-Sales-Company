@@ -16,4 +16,12 @@ class Customer extends Model
         'address',
         'regional_id'
     ];
+
+    public function regional() {
+        return $this->belongsTo(Regional::class);
+    }
+
+    public function sales() {
+        return $this->hasMany(Sale::class);
+    }
 }

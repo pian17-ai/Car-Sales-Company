@@ -12,4 +12,12 @@ class CarModel extends Model
     ];
 
     public $timestamps = false;
+
+    public function brand() {
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function cars() {
+        return $this->hasMany(Car::class);
+    }
 }
